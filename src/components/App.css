@@ -1,0 +1,55 @@
+body {
+    background-color: rgb(245, 245, 245);
+}
+
+.navbar {
+    background-color: #170b30;
+}
+
+.nav-item a{
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    
+}
+
+.LogoEmpanadas {
+    width: 200px;
+}
+
+.btn-car {
+    margin-right: 1rem;
+    font-size: 20px;
+}
+
+.btn-cant{
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 5px;
+    font-size: 15px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.btnCount {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.card {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: rgb(255, 255, 255);
+}
+
+.navbar-nav .nav-item.active .nav-link,
+.navbar-nav .nav-item:hover .nav-link {
+    color: rgba(196, 188, 255, 0.935);
+}
+
+.imgDetail {
+    width: 800px;
+}
