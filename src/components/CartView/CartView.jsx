@@ -25,13 +25,11 @@ const CartView = () => {
     }
 
     // const [count, setCount] = useState(cantidad())
-
     // const menosCant = () => {
     //     if (count > 1) {
     //         setCount(count-1)
     //     }
     // }
-
     // const masCant = () => {
     //     if (count >= 1) {
     //         setCount(count+1)
@@ -53,8 +51,10 @@ const CartView = () => {
             ))}
             <div className="d-flex justify-content-center py-4 divTotal">
                 <span className="textCart py-4 d-flex align-items-center textPrecio" >Precio Total: ${getTotal()}</span>
-                <button className="btn btn-success btnCart my-4" onClick={() => soldCart()}> Terminar mi Comprar </button>
-                <button className="btn btn-light btnCart my-4" onClick={() => clearCart()}> Vaciar Carro </button>
+                <button className="btn btn-danger btnCart my-4" onClick={() => clearCart()}>Vaciar Carro</button>
+                <Link to='/checkout'>
+                    <button className="btn btn-success btnCart my-4">Finalizar mi Comprar</button>
+                </Link>
             </div>
         </div>
     ) : (
