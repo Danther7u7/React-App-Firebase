@@ -53,3 +53,12 @@ body {
 .imgDetail {
     width: 800px;
 }
+
+.orderID {
+    background-color: #170b30;
+}
+
+.orderID p {
+    color: white;
+    margin-bottom: 0;
+}

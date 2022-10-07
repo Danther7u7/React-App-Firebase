@@ -12,7 +12,6 @@ const Producto = () => {
 		try{
 			const document = categoria ? query(collection(db,"Items"), where("categoria", "==", categoria)) : collection(db, "Items")
 			const col = await getDocs(document)
-			console.log('col.docs', col.docs)
 			const result = col.docs.map((doc) => doc = {id:doc.id,...doc.data()})
 			setList(result)
 
