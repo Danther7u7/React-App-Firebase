@@ -10,15 +10,6 @@ const ItemDetailContainer = () => {
 	const {id} = useParams()
 	const [producto, setProducto] = useState({})
 
-		// const getProducto = () => new Promise((resolve, reject) => {
-		// 	setTimeout(() => resolve(productos.find(product => product.id === parseInt(id))), 100)
-		// })
-
-		// useEffect(() => {
-		// 	getProducto()
-		// 	.then(response => setProducto(response))
-		// }, [])
-
 	const getSelected = async(idItem) => {
 		try {
 			const document = doc(db, "Items", idItem)

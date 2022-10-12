@@ -1,5 +1,4 @@
 import React, {createContext, useState} from 'react';
-import ItemDetail from '../components/ItemDetailContainer/ItemDetail';
 
 const CartContext = createContext()
 

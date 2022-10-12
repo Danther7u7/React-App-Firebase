@@ -3,16 +3,24 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../../../context/CartContext';
 import Count from '../../ItemListContainer/ItemCount/ItemCount';
 import '../../../components/App.css'
+import db from "../../../services/firebase"
+import { doc, updateDoc } from "firebase/firestore";
 
 const ItemDetail = ({ producto }) => {
-	const { addToCart, cart } = useContext(CartContext);
+	const { addToCart } = useContext(CartContext);
 	const [isAdd, setIsAdd] = useState(false);
 	let { nombre, marca, modelo, stock, precio, img, id } = producto;
-    const [stockQuant, setStockQuant] = useState(30);
-
+	const [stockQuant, setStock] = useState(stock);
+	let idRef = String(id)
+	const itemRef = doc(db, "Items", idRef);
+    
 	const handleAdd = (cant) => {
 		addToCart({id, nombre, precio, img}, cant);
-		setStockQuant(stockQuant - cant);
+		let stockRef = stock - cant
+		updateDoc (itemRef, {
+			stock: stockRef
+		})
+		setStock(stockRef)
 		setIsAdd(true);
 	};
 
@@ -29,7 +37,7 @@ const ItemDetail = ({ producto }) => {
 							<h6 className='card-text mb-3'>Marca: {marca} </h6>
 							<h6 className='card-text mb-3'>Modelo: {modelo} </h6>
 							<h6 className='card-text mb-3'>Precio: ${precio} </h6>
-                            <h6 className='card-text mb-3'>Stock: {stockQuant} </h6>
+                            <h6 className='card-text mb-3'>Stock: {stock} </h6>
 							<p className='mb-3 mx-5 px-5'>
 								Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
 								nulla a, cum qui, fuga aliquid, consequuntur itaque enim
@@ -43,7 +51,7 @@ const ItemDetail = ({ producto }) => {
 							{isAdd != 0 ? (
 								<Link to='/cart'><button className='btn btn-primary py-3'>Terminar mi compra</button></Link>
 							) : (
-								<Count onAdd={handleAdd} stock={stockQuant} />
+								<Count onAdd={handleAdd} stock={stock} />
 							)}
 						</div>
 					</div>

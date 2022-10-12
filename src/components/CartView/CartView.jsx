@@ -1,40 +1,10 @@
-import React, { useContext, useState} from "react";
+import React, { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 import "./CartView.css";
-import Swal from 'sweetalert2'
 
 const CartView = () => {
     const {cart, removeToCart, getTotal, clearCart} = useContext(CartContext);
-
-    const soldCart = () => {
-        Swal.fire(
-            'Compra Exitosa!',
-            'Muchas Gracias!',
-            'success'
-          )
-        clearCart()
-    }
-
-    const cantidad = () => {
-        let cant;
-        cart.forEach((element) => {
-            cant = (element.cantidad);
-        })
-        return cant;
-    }
-
-    // const [count, setCount] = useState(cantidad())
-    // const menosCant = () => {
-    //     if (count > 1) {
-    //         setCount(count-1)
-    //     }
-    // }
-    // const masCant = () => {
-    //     if (count >= 1) {
-    //         setCount(count+1)
-    //     }
-    // }
 
     return cart.length > 0 ? (
         <div>
@@ -43,8 +13,6 @@ const CartView = () => {
                     <span className="textCart d-flex align-items-center"> {element.producto.nombre} </span>
                     <span className="textCart d-flex align-items-center"> Precio: {element.producto.precio} </span>
                     <span className="textCart d-flex align-items-center"> Cantidad: {element.cantidad} </span>
-                    {/* <div className="d-flex align-items-center"><button className="btn btn-success btnOp" onClick={() => menosCant()}> - </button></div>
-                    <div className="d-flex align-items-center"><button className="btn btn-danger btnOp" onClick={() => masCant()}> + </button></div> */}
                     <img className="imgCart d-flex align-items-center" src={element.producto.img}/>
                     <div className="d-flex align-items-center"><button className="btn btn-dark btnCart" onClick={() => removeToCart(element.producto.id)}> Eliminar </button></div>
                 </div>
