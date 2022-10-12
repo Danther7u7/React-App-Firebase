@@ -7,4 +7,3 @@ Dentro del carrito se peuden eliminar productos.
 Una vez se finalzia la compra, se solicitan los datos del comrpador para generar la orden.
 La orden entrega un id al azar generado con Firestore.
 Los datos se registran en Firestore.
-
